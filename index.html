@@ -10,15 +10,19 @@
     gtag('config', 'AW-18310752630');
   </script>
 
-  <!-- Event konversi Google Ads: klik WhatsApp / Kontak -->
+  <!-- Event snippet Google Ads: konversi Kontak saat tombol WhatsApp diklik -->
   <script>
     function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
       gtag('event', 'conversion', {
-        'send_to': 'AW-18310752630/-gsECNWJ89lcEPbSn5tE'
+        'send_to': 'AW-18310752630/-gsECNWJ89IcEPbSn5tE',
+        'event_callback': callback
       });
-
-      // Semua tombol WhatsApp membuka tab baru, jadi tautan tetap berjalan normal.
-      return true;
+      return false;
     }
   </script>
   <meta charset="utf-8">
